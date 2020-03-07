@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Patagonia Health</title>
+    <style>
+        .patient-list {
+
+        text-align:center;
+        width:200;
+        padding: 5px 5px 5px 5px;
+        }
+        .dashboard{
+        margin:60px 25px 25px 25px;
+
+        }
+        td {
+        width:75px;
+        }
+        th{
+        text-align:center;
+        }
+
+        .patient-list {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif";
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.patient-list td, .patient-list th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.patient-list tr:nth-child(even){background-color: #f2f2f2;}
+
+
+        input[type=text], input[type=email] {
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #2c3376;;
+color:white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.panel{
+    background: #2c3376;
+    height: 45px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    color:white;
+    padding: 10px 45px 10px 45px;
+
+}
+
+    </style>
+</head>
+<body>
+<img src="https://patagoniahealth.com/wp-content/uploads/2015/09/Patagonia-Logo.jpg" height="80" width="30%" style="margin:15px 0px 0px 15px">
+<div class="panel">
+<span style="float:left;">Welcome {{physician_name}} </span> <span style="float:right;"><a style="color:white;" href="/logout">Logout</a></span>
+</div>
+<div class="container">
+<div class="row dashboard">
+
+<div class="col-md-8">
+    <div style="text-align: center"><b><h3>Registered Patients</h3></b></div>
+<table border='1' class="patient-list">
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th><span class="glyphicon glyphicon-trash"></span></th>
+        <th><span class="glyphicon glyphicon-edit"></span></th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for row in patients %}
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td><a href="/delete_patient/{{row[3]}}">Delete</a></td>
+                <td><a href="/edit_patient/{{row[3]}}">Edit</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+<div class="col-md-4">
+<form action = "/add_patient" method = "post">
+ <p>Enter First Name:<input type = "text" name = "fname" required/></p>
+ <p>Enter Last Name:<input type = "text" name = "lname" required/></p>
+<p>Enter Email:<input type = "email" name = "email" required/></p>
+
+{{error_msg}}
+ <p><input type = "submit" value = "Register Patient" /></p>
+</form>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

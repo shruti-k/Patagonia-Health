@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Patagonia Health</title>
+    <style>
+        .patient-list {
+
+        text-align:center;
+        width:200;
+        padding: 5px 5px 5px 5px;
+        }
+        .dashboard{
+        margin:50px 50px 50px 50px;
+
+        }
+        td {
+        width:75px;
+        }
+        th{
+        text-align:center;
+        }
+
+        input[type=text], input[type=password],input[type=email] {
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit],.button-class{
+ width:100%;
+  background-color: #2c3376;;
+color:white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.register{
+left-margin:50px;
+}
+
+    </style>
+</head>
+<body>
+<img src="https://patagoniahealth.com/wp-content/uploads/2015/09/Patagonia-Logo.jpg" height="80" width="30%" style="margin:15px 0px 0px 15px">
+<div class="container">
+<div class="row dashboard">
+<div class="col-md-4">
+</div>
+<div class="col-md-4 register">
+<form action = "/add_physician" method = "post">
+ <p>Enter First Name:<input type = "text" name = "fname" required/></p>
+ <p>Enter Last Name:<input type = "text" name = "lname" required/></p>
+<p>Enter Email:<input type = "email" name = "email" required/></p>
+<p>Enter Password:<input type = "password" name = "password" required/></p>
+ <p>Re-enter Password:<input type = "password" name = "cpassword" required/></p>
+
+{{error_msg}}
+ <p><input type = "submit" value = "Create Account" /></p>
+ </form>
+    <p><a style="align=center;" href="{{ url_for('logout')}}">Back</a></p>
+</div>
+<div class="col-md-4">
+</div>
+</div>
+</div>
+
+</body>
+</html>
