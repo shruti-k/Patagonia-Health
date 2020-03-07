@@ -69,7 +69,6 @@ def register_patient():
 
 @app.route('/delete_patient/<patient_id>')
 def delete_patients(patient_id):
-   print("patient id---***",patient_id,physician_id)
    response = delete_patient(patient_id,physician_id,cursor,db)
    if response[0]:
         return redirect(url_for('physician_dashboard'))
