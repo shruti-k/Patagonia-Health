@@ -3,10 +3,10 @@ import mysql.connector as mysql
 from managePhysician import *
 from managePatient import *
 db = mysql.connect(
-    host = "localhost",
-    user = "root",
-    passwd = "root",
-    database = "patagonia",
+    host = "sskangle.mysql.pythonanywhere-services.com",
+    user = "sskangle",
+    passwd = "patagonia",
+    database = "sskangle$patagonia",
     auth_plugin='mysql_native_password'
 )
 app = Flask(__name__,template_folder='.')
