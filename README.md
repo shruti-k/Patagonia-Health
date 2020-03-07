@@ -1,6 +1,6 @@
 # Patagonia-Health
 
-This is web app developed in Python-Flask framework.
+This web app has been developed in the Python-Flask framework.
 
 It has the functionalities to:
 
